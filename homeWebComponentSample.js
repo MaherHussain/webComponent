@@ -1,4 +1,4 @@
-class HomeComponent extends HTMLElement {
+class CustomCriteriaComponent extends HTMLElement {
     static get observedAttributes() {
         return ['prop']; // Add the prop attribute to the list of observed attributes
     }
@@ -32,4 +32,4 @@ class HomeComponent extends HTMLElement {
     }
 }
 
-customElements.define('home-component', HomeComponent)
+customElements.define('custome-criteria-component', CustomCriteriaComponent)

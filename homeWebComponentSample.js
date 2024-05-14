@@ -32,4 +32,4 @@ class CustomCriteriaComponent extends HTMLElement {
     }
 }
 
-customElements.define('custome-criteria-component', CustomCriteriaComponent)
+customElements.define('custom-criteria-component', CustomCriteriaComponent)

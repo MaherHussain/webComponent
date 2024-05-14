@@ -17,6 +17,7 @@ class HomeComponent extends HTMLElement {
 
     renderElements() {
         this.container.innerHTML = `<div style="padding: 24px; border: 9px solid blue;">
+                                        <h1> Custom criteria </h1>
                                         <p>page is: ${this._prop ? this._prop : 'not available'}</p>
                                     </div>`
     }

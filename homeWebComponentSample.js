@@ -17,12 +17,12 @@ class CustomCriteriaComponent extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'header') {
-      this.render();
+      this.renderElements();
     }
   }
   
   connectedCallback() {
-        this.render();
+        this.renderElements();
         this.shadowRoot.querySelector('input').addEventListener('input', this.handleInputChange);
         this.shadowRoot.querySelector('select').addEventListener('change', this.handleDropdownChange);
       }

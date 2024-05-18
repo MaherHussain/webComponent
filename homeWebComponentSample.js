@@ -15,12 +15,71 @@ class CustomCriteriaComponent extends HTMLElement {
         this.renderElements()
     }
 
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'header') {
+      this.render();
+    }
+  }
+  
+  connectedCallback() {
+        this.render();
+        this.shadowRoot.querySelector('input').addEventListener('input', this.handleInputChange);
+        this.shadowRoot.querySelector('select').addEventListener('change', this.handleDropdownChange);
+      }
+
+  disconnectedCallback() {
+        this.shadowRoot.querySelector('input').removeEventListener('input', this.handleInputChange);
+        this.shadowRoot.querySelector('select').removeEventListener('change', this.handleDropdownChange);
+      }
+
+  handleInputChange(event) {
+        console.log('Input changed:', event.target.value);
+      }
+
+  handleDropdownChange(event) {
+        console.log('Dropdown changed:', event.target.value);
+      }
+
     renderElements() {
-        this.container.innerHTML = `<div style="padding: 24px; border: 9px solid blue;">
-                                        <h2>${this._props?.header || ''}</h2>
-                                        <input type="text" />
-                                        <p>page is: ${this._props?.entityGuid ? this._props.entityGuid : 'Not Available'}</p>
-                                    </div>`
+        this.container.innerHTML = `
+          <style>
+            .container {
+              border: 1px solid #ccc;
+              padding: 16px;
+              max-width: 300px;
+              margin: auto;
+            }
+            .header {
+              font-size: 24px;
+              font-weight: bold;
+              margin-bottom: 16px;
+            }
+            .form-group {
+              margin-bottom: 16px;
+            }
+            input, select {
+              width: 100%;
+              padding: 8px;
+              margin-top: 4px;
+              box-sizing: border-box;
+            }
+          </style>
+          <div class="container">
+            <div class="header">${header}</div>
+            <div class="form-group">
+              <label for="inputField">Input:</label>
+              <input type="text" id="inputField" />
+            </div>
+            <div class="form-group">
+              <label for="dropdown">Dropdown:</label>
+              <select id="dropdown">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+              </select>
+            </div>
+          </div>
+        `;`
     }
 
     set prop(value) { // Define a setter for the property

@@ -65,7 +65,7 @@ class CustomCriteriaComponent extends HTMLElement {
             }
           </style>
           <div class="container">
-            <div class="header">${this._props?.header ? this._props.header || 'no header'}</div>
+            <h2 class="header">${this._props?.header ? this._props.header : 'Not Available'}</h2>
             <div class="form-group">
               <label for="inputField">My custome critria input:</label>
               <input type="text" id="inputField" />

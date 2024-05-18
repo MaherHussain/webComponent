@@ -67,11 +67,11 @@ class CustomCriteriaComponent extends HTMLElement {
           <div class="container">
             <div class="header">${header}</div>
             <div class="form-group">
-              <label for="inputField">Input:</label>
+              <label for="inputField">My custome critria input:</label>
               <input type="text" id="inputField" />
             </div>
             <div class="form-group">
-              <label for="dropdown">Dropdown:</label>
+              <label for="dropdown">My custome critria Dropdown:</label>
               <select id="dropdown">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>

@@ -79,7 +79,7 @@ class CustomCriteriaComponent extends HTMLElement {
               </select>
             </div>
           </div>
-        `;`
+        `;
     }
 
     set prop(value) { // Define a setter for the property

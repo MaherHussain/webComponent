@@ -65,12 +65,6 @@ class CustomCriteriaComponent extends HTMLElement {
           
       </div>
   `
-
-    this.shadowRoot
-      .getElementById('logbook-loader-button')
-      .addEventListener('click', () =>
-        this.handleClick(this._props.orderGuid, this._props.cultureCode)
-      )
   }
 
   set props(value) {

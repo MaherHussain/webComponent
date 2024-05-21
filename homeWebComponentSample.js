@@ -69,6 +69,7 @@ class CustomCriteriaComponent extends HTMLElement {
 
   set props(value) {
     // Define a setter for the property
+      console.log(value)
     this._props = value
     this.renderElements()
   }

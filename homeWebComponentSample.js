@@ -83,9 +83,14 @@
 customElements.define('custom-criteria-component', CustomCriteriaComponent)
  */
 class ClickCounterGame extends HTMLElement {
+     static get observedAttributes() {
+        return ['prop']; // Add the prop attribute to the list of observed attributes
+    }
+
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        this._props = this.getAttribute('props') // Initialize the property from the attribute
         this.shadowRoot.innerHTML = `
             <style>
                 .game-container {
@@ -168,6 +173,17 @@ class ClickCounterGame extends HTMLElement {
         this.clickButton.style.display = 'none';
         alert(`Game over! Your score is ${this.score}.`);
     }
+    set props(value) {
+    // Define a setter for the property
+      console.log(value)
+    this._props = value
+    this.renderElements()
+  }
+
+  get props() {
+    // Define a getter for the property
+    return this._props
+  }
 }
 
 customElements.define('click-counter-game', ClickCounterGame);
